@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, FindOneOptions } from 'typeorm';
 import { Task } from './task.entity';
@@ -6,7 +6,7 @@ import { Task } from './task.entity';
 @Injectable()
 export class TaskService {
   constructor(
-    @InjectRepository(Task)
+    @Inject('TASK_REPOSITORY')
     private taskRepository: Repository<Task>,
   ) {}
 
