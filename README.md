@@ -1,49 +1,62 @@
-Task Manager API
-Este é um projeto de API de gerenciamento de tarefas criado com o framework NestJS, utilizando o TypeORM como ORM e o banco de dados MySQL.
+Sobre o projeto
+Este projeto consiste em uma aplicação web que permite gerenciar tarefas, onde o usuário pode visualizar, criar, atualizar e excluir tarefas, bem como marcar uma tarefa como concluída ou não concluída. O projeto é dividido em duas partes: a parte backend, que utiliza o framework NestJS para construir uma API RESTful, e a parte frontend, que utiliza o framework ReactJS para construir a interface do usuário.
+
+Pré-requisitos
+Para executar o projeto, é necessário ter o Node.js e o npm (gerenciador de pacotes do Node.js) instalados em sua máquina.
 
 Instalação
-Para instalar as dependências do projeto, execute o seguinte comando:
+Clone o repositório:
 
-Copy code
+git clone git@github.com:Bruintut/tasks-master.git
+
+Backend
+Para instalar as dependências do backend, execute o seguinte comando na pasta backend:
+
 npm install
-Configuração do banco de dados
-Este projeto requer um servidor MySQL em execução e acessível para funcionar corretamente. Para configurar a conexão com o banco de dados, crie um arquivo .env na raiz do projeto e adicione as seguintes variáveis de ambiente:
 
-makefile
-Copy code
-DB_HOST=seu_host_mysql
-DB_PORT=sua_porta_mysql
-DB_USERNAME=seu_usuario_mysql
-DB_PASSWORD=sua_senha_mysql
-DB_DATABASE=nome_do_seu_banco_de_dados
+
+Frontend
+Para instalar as dependências do frontend, execute o seguinte comando na pasta client:
+
+npm install
+
+Configuração
+
+Antes de iniciar a aplicação, é necessário configurar as variáveis de ambiente no arquivo .env na pasta backend. Renomeie o arquivo .env.example para .env e configure as variáveis de acordo com o ambiente em que a aplicação será executada.
+
 Execução
-Para executar o servidor de desenvolvimento, utilize o seguinte comando:
+Backend
+Para executar o backend, execute o seguinte comando na pasta backend:
 
-arduino
-Copy code
 npm run start:dev
-O servidor estará disponível em http://localhost:3000.
 
-Endpoints
-A API possui os seguintes endpoints:
 
-GET /tasks
-Retorna uma lista de todas as tarefas cadastradas.
+Frontend
+Para executar o frontend, execute o seguinte comando na pasta client:
 
-GET /tasks/:id
-Retorna uma única tarefa pelo seu ID.
+npm start
 
-POST /tasks
-Cria uma nova tarefa.
+Funcionalidades
+A aplicação tem as seguintes funcionalidades:
 
-PUT /tasks/:id
-Atualiza uma tarefa existente.
+Visualizar todas as tarefas cadastradas
+Adicionar uma nova tarefa
+Editar uma tarefa existente
+Excluir uma tarefa existente
+Marcar uma tarefa como concluída ou não concluída
+Tecnologias utilizadas
+Backend
+Node.js
+NestJS
+PostgreSQL
+Frontend
+ReactJS
+React Router
+Axios
+Bootstrap
+Autor
+Nome: Bruno Oliveira
 
-DELETE /tasks/:id
-Remove uma tarefa existente.
+LinkedIn: https://www.linkedin.com/in/bruno-alves-de-oliveira-a93b0814a
 
-Contribuindo
-Contribuições são sempre bem-vindas! Sinta-se à vontade para abrir uma issue ou um pull request.
-
-Licença
-Este projeto está licenciado sob a Licença MIT. Veja o arquivo LICENSE para mais detalhes.
+Email: bruno_oliveira999@hotmail.com

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getTasks } from '../../helpers/api';
 
-import './Home.css';
+import '../Home/Home.css';
 
 function Home() {
   const [tasks, setTasks] = useState([]);

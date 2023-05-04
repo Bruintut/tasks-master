@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-
+import axios from 'axios';
 
 import { createTask, updateTask, deleteTask } from '../../helpers/api';
 
@@ -12,9 +12,12 @@ const Tasks = () => {
   useEffect(() => {
     // Aqui vamos buscar as tarefas existentes na API e atualizar o estado com elas
     const fetchTasks = async () => {
-      const fetchedTasks = await fetch('http://localhost:3000/tasks');
-      const tasksData = await fetchedTasks.json();
-      setTasks(tasksData);
+      try {
+        const response = await axios.get('http://localhost:3000/tasks');
+        setTasks(response.data);
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     fetchTasks();
@@ -44,7 +47,7 @@ const Tasks = () => {
     // Aqui vamos atualizar uma tarefa existente e atualizar o estado com ela
     const updatedTask = await updateTask(id, newTitle, newDescription);
     const updatedTasks = tasks.map((task) =>
-      task.id === updatedTask.id ? updatedTask : task
+      task.id === updatedTask.id ? updatedTask : task,
     );
     setTasks(updatedTasks);
   };
@@ -85,7 +88,11 @@ const Tasks = () => {
           <li key={task.id}>
             <h2>{task.title}</h2>
             <p>{task.description}</p>
-            <button onClick={() => handleEdit(task.id, 'New Title', 'New Description')}>
+            <button
+              onClick={() =>
+                handleEdit(task.id, 'New Title', 'New Description')
+              }
+            >
               Edit
             </button>
             <button onClick={() => handleDelete(task.id)}>Delete</button>
